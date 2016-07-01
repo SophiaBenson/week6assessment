@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Super Hero Assessment</title>
+<script src="views/vendors/angular.min.js" charset="utf-8"></script>
+<script src="scripts/script.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <h2>Hero Entry</h2>
+    <!-- make two seperate views. one for entry and one for views -->
+    <div ng-controller='birdHeroController'>
+      <input type="text" ng-model="alias"  placeholder="alias"value="">
+      <input type="text" ng-model="first_name" placeholder="first_name" value="">
+      <input type="text" ng-model="last_name"  placeholder="last_name"value="">
+      <input type="text" ng-model="city"  placeholder="city"value="">
+      <select ng-model="power_name" >
+        <option value="invisibility">invisibility</option>
+        <option value="flight">flight</option>
+        <option value="super_speed">super_speed</option>
+        <option value="heat_vision">heat_vision</option>
+        <option value="super_strength">super_strength</option>
+        <option value="accelerated_healing">accelerated_healing</option>
+        <option value="power_blast">power_blast</option>
+        <option value="animal_affinity">animal_affinity</option>
+
+      </select>
+      <button ng-click="saveHero()" name="button">Add Hero</button>
+      <p ng-repeat='hero in heroes'>
+        {{hero.alias}}
+      </p>
+    </div>
+
+  </body>
+</html>
