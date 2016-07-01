@@ -4,12 +4,19 @@
     <meta charset="utf-8">
     <title>Super Hero Assessment</title>
 <script src="views/vendors/angular.min.js" charset="utf-8"></script>
+<script src="views/vendors/bootstrap.min.css" charset="utf-8"></script>
+
 <script src="scripts/script.js" charset="utf-8"></script>
   </head>
   <body>
     <h2>Hero Entry</h2>
     <!-- make two seperate views. one for entry and one for views -->
     <div ng-controller='birdHeroController'>
+      <div class="navbar navbar-default" ng-init="tab=1">
+        <div class="btn btn-info" ng-click="tab = 1">Enter Heroes</div>
+        <div class="btn btn-info" ng-click="tab = 2">Click to Show Heroes!</div>
+      </div>
+      <div ng-show="tab ==1">
       <input type="text" ng-model="alias"  placeholder="alias"value="">
       <input type="text" ng-model="first_name" placeholder="first_name" value="">
       <input type="text" ng-model="last_name"  placeholder="last_name"value="">
@@ -26,9 +33,18 @@
 
       </select>
       <button ng-click="saveHero()" name="button">Add Hero</button>
+    </div>
+    <div ng-show= "tab == 2">
       <p ng-repeat='hero in heroes'>
-        {{hero.alias}}
+        Alias: {{hero.alias}},
+        <br>First Name: {{hero.first_name}},
+        <br>Last Name: {{hero.last_name}},
+        <br>City: {{hero.city}},
+        <br>Power: {{hero.power_name}}
+        <button ng-click="deleteFromList($index)" name="button">Delete</button>
       </p>
+
+    </div>
     </div>
 
   </body>

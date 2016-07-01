@@ -30,5 +30,30 @@ $scope.getHeroes = function () {
     console.log("$scope.heroes" + $scope.heroes);
   });
 };//end getHeroes
+//delete list
+$scope.deleteFromList = function( idx) {
+  console.log("bird is removing ");
+  var heroDelete = $scope.alias[idx];
+  API.deleteFromList({id: heroDelete.id}, function (success) {
+    $scope.alias.splice(idx, 1);
+  });
+// var data = $.param({
+//   alias: $scope.alias,
+//   first_name: $scope.first_name,
+//   last_name: $scope.last_name,
+//   city: $scope.city,
+//   power_name: $scope.power_name
+// });
+// $http.delete('/deleteHero')
+// .success(function () {
+//   res.sendStatus(200);
+// })
+// .error(function () {
+
+// });
+  };
+
+
+
 $scope.getHeroes();
 }]);//end controller

@@ -44,3 +44,7 @@ app.post('/addHeroes', function(req, res){
   newHero.save();
   res.send(true);
 });//end heroes post
+app.delete('/deleteHero', function (req,res) {
+  console.log('bird is deleting a hero');
+returnedModel.remove();
+});
